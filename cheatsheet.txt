@@ -59,3 +59,6 @@ ng g service userData
 
 ************************* gebnerate api service **************************************
 ng g service userData
+
+***************************** children route ********************
+ng g m admin --routing
