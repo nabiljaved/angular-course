@@ -62,3 +62,14 @@ ng g service userData
 
 ***************************** children route ********************
 ng g m admin --routing
+
+***************************** group routing ********************
+ng g m user --routing 
+
+*********************** forms *********************************
+import { AppRoutingModule } from './app-routing.module';
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule
+  ],
