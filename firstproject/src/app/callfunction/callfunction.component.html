@@ -1,0 +1,171 @@
+<app-callfunction-header></app-callfunction-header>
+
+<h1>call function</h1>
+<Button (click)="getName()">get name</Button> <br> <br>
+<Button (click)="dynamicName('Maxmillion')">get dynamic name</Button> <br> <br>
+<Button (click)="getVariableName(tony)">get variable name</Button> <br>
+
+
+<h1>Important Events !</h1>
+<Button (click)="myEvent('this is a click event')">click event</Button> <br> <br>
+<input type="text" placeholder="keyup" #box (keyup)="myEvent2(box.value)"/> <br> <br>
+<input type="text" placeholder="keyupenter" #box2 (keyup.enter)="myEvent2(box2.value)"/> <br> <br>
+<input type="text" #box3 placeholder="keydown" (keydown)="myEvent2(box3.value)"/> <br> <br>
+<input type="text"  placeholder="blur" (blur)="myEvent2('blur event')"/> <br> <br>
+
+<h1>Get Text Box Value !</h1>
+<input type="text" (keyup)="getValue($event)"/> <br>
+<h1>value will be displayed here : {{dynamicValue}}</h1>
+
+<input type="text" #box4/> <br><br>
+<button (click)="getValueFromBox(box4.value)">Get Value</button>
+
+<h1>Property Binding</h1>
+<input type="text" #box5 [disabled]="disabledBox" [value]="name"/> <br><br>
+<button (click)="getValueFromBox4(box5.value)">Get Value</button>
+
+
+<h1>Interpolition disabled will not work</h1>
+<input type="text" #box6 disabled="{{disabledBox}}" value="{{name2}}"/> <br><br>
+<button (click)="getValueFromBox5(box6.value)">Get Value</button> <br><br>
+
+<button (click)="enableBox()">Enable Box</button>
+
+<br><br>
+<h1>simple if Condition Statement</h1>
+<div *ngIf="show">
+    <h1>if block</h1>
+</div>
+
+<br>
+
+<h1>if and else example</h1>
+<div *ngIf="show else elseBlock">
+    <!-- <h1>if block</h1> -->
+</div>
+<ng-template #elseBlock>
+    <h1>else block</h1>
+</ng-template>
+
+<br>
+<h1>condition with string example</h1>
+<div *ngIf="show2 =='yes' else elseBlock">
+    <h1>if block</h1>
+</div>
+<ng-template #elseBlock>
+    <h1>else block</h1>
+</ng-template>
+
+<br>
+<h1>if block else block string example</h1>
+<div *ngIf="show2 =='yes'; then ifBlock else elseBlock"></div>
+<ng-template #ifBlock>
+    <h1>if block showing</h1>
+</ng-template>
+<ng-template #elseBlock>
+    <h1>else block</h1>
+</ng-template>
+
+<br>
+<h1>if else example with property Binding</h1>
+<ng-template [ngIf]="fruit == 'apple' ">
+    <h1>apple fruit</h1>
+</ng-template>
+<ng-template [ngIf]="fruit == 'orange' ">
+    <h1>orange fruit</h1>
+</ng-template>
+
+
+<br>
+<h1>switch case in angular color example</h1>
+<div [ngSwitch] = 'color'>
+    <h2 style="color: yellow;" *ngSwitchCase = "'yellow'">
+        yellow color
+    </h2>
+    <h2 style="color: red;" *ngSwitchCase = "'red'">
+        red color
+    </h2>
+    <h2 style="color: green;" *ngSwitchCase = "'green'">
+        green color
+    </h2>
+</div>
+
+<br>
+<h1>For Loop example</h1>
+<h4 *ngFor="let item of data">
+    <p style="color: rosybrown;">{{item}}</p>
+</h4>
+
+<br>
+<h1>For Loop example object</h1>
+<h4 *ngFor="let item of student">
+    <p style="color: rosybrown;">{{item.id}} -- {{item.name}}</p>
+</h4>
+
+
+<br>
+<h1>For Loop example table</h1>
+<table border="1" style="margin-bottom:10px ;">
+    <tr>
+        <td>id</td>
+        <td>Name</td>
+    </tr>
+    <tr *ngFor = "let item of student">
+        <td style="color: salmon;">{{item.id}}</td>
+        <td style="color: salmon;">{{item.name}}</td>
+    </tr>
+</table>
+
+<br>
+<h1>Simple Form in Angular</h1>
+<form style="margin-bottom: 10px;" #simpleForm="ngForm" (ngSubmit)="getFormValue(simpleForm.value)">
+    <input ngModel type="text" placeholder="enter username" name="username"/> <br> <br>
+    <input ngModel type="text" placeholder="enter age" name="age"/> <br> <br>
+    <input ngModel type="text" placeholder="enter address" name="address"/> <br> <br>
+    <input ngModel type="password" placeholder="enter password" name="password"/> <br> <br>
+    <Button style="margin-bottom: 10px;">Submit</Button>
+</form>
+
+<h1>Normal Style and Style Binding</h1>
+<h3 style="color: red;">Normal Style</h3>
+<h3 [style.color] = "'green'">Normal Style</h3>
+<h3 [style.color] = "'white'" [style.backgroundColor] = "'blue'">Normal Style</h3> 
+<h3 [style.color] = "dynamicColor">Dynamic Style</h3> <br>
+<h3 [style.color] = "error?'red':'green'">Conditional Style</h3> <br>
+
+<button type="button" class="btn btn-outline-success" (click)="updateColor()">Success</button> <br><br>
+
+<h1>Angular Bootstrap Components</h1>
+<p>
+    <ngb-alert [dismissible]="false">
+      <strong>Warning!</strong> Better check yourself, you're not looking too good.
+    </ngb-alert>
+  </p>
+
+  <h1>Loop Alerts</h1>
+  <p *ngFor="let alert of alerts">
+    <ngb-alert [type]="alert.type" (closed)="close(alert)">{{ alert.message }}</ngb-alert>
+  </p>
+  <p>
+    <button type="button" class="btn btn-primary" (click)="reset()">Reset</button>
+  </p>
+
+<div (mouseover)="myEvent2('mouse in')" style="width: 100%; height: 100px; background: skyblue;">
+    Mouse over
+</div>
+
+
+<br><br>
+
+<div (mouseleave)="myEvent2('mouse leave')" style="width: 100%; height: 100px; background: skyblue;">
+    Mouse Leave
+</div>
+
+
+<br><br>
+
+<div (mouseover)="myEvent2('mouse in')" (mouseleave)="myEvent2('mouse leave')" style="width: 100%; height: 100px; background: skyblue;">
+    Mouse Leave and mouse in 
+</div>
+
+<app-callfunction-footer></app-callfunction-footer>

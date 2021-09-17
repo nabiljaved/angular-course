@@ -1,0 +1,31 @@
+<h1>Add Material in Angular 10</h1>
+<button mat-button color="primary">Primary</button>
+<button mat-raised-button color="accent">Accent</button>
+
+<br><br>
+<h1>Matt slider Module</h1>
+<mat-slider min="1" max="5" step="0.5" value="1.5"></mat-slider>
+
+<h1>Parent and Child component</h1>
+<app-users [hero]="name" [student]="student" ></app-users>
+
+<h1>Reusable Component</h1>
+
+<div *ngFor="let data of studentArray">
+    <app-reusable [students]="data"></app-reusable>
+</div>
+
+<h1>Send Data To Parent</h1>
+<app-sendparent (sendParent)="parentComponent($event)" (btnParent)="btnParent($event)"></app-sendparent>
+<h1>Received data from child : {{fromParent}}</h1>
+<h1>Received data from child as Object : {{receive.id}} - {{receive.name}}</h1>
+
+<h1>PIPES</h1>
+<h3>{{name | lowercase}}</h3>
+<h3>{{today | date}}</h3>
+<h3>{{today | date:'fullDate'}}</h3>
+<h3>{{str | slice:1}}</h3>
+<h3>{{str | slice:1:5}}</h3>
+<h3>{{val | currency}}</h3>
+<h3>{{val | currency:'USD'}}</h3>
+<h3>{{val | currency:'CAD'}}</h3>

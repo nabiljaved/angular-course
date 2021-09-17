@@ -1,0 +1,51 @@
+
+
+************************************** modules **********************************************
+
+ng generate component userList
+ng g m users 
+cd g c users/login
+
+************************* import module into another module ***************************
+
+-> make a module users 
+-> export component login
+-> export module UsersLogin
+
+-> make another module
+-> make different component 
+-> import the UsersLogin Module
+-> then use the login module in different module
+
+https://stackoverflow.com/questions/43937387/if-selector-is-an-angular-component-then-verify-that-it-is-part-of-this-mod
+
+************************* add bootstrap in 9 and 10 ********************
+ng add @ng-bootstrap/ng-bootstrap 
+changed in package.json
+
+************************* bootstrap in 4 and above ******************************
+npm install bootstrap jquery 
+-> angular.json -> 
+
+ "styles": [
+              "src/styles.css",
+              "./node_modules/bootstrap/dist/css/bootstrap.css"
+            ],
+            "scripts": ["./node_modules/jquery/dist/jquery.min.js",
+              "./node_modules/bootstrap/dist/js/bootstrap.js"
+]
+
+
+************************* add material UI **************************************
+
+ng add @angular/material
+import {MatButtonModule} from '@angular/material/button'
+import {MatSliderModule} from '@angular/material/slider';
+
+ imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatSliderModule  
+  ],

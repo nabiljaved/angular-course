@@ -1,0 +1,13 @@
+
+
+.box{
+    background-color: aqua;
+    padding: 10;
+    color: white;
+    margin: 10px;
+}
+
+p{
+    display: inline-block;
+    padding: 10px;
+}
