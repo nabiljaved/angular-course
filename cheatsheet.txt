@@ -49,3 +49,5 @@ import {MatSliderModule} from '@angular/material/slider';
     MatButtonModule,
     MatSliderModule  
   ],
+
+************************* gebnerate directive **************************************
