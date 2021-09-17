@@ -51,3 +51,11 @@ import {MatSliderModule} from '@angular/material/slider';
   ],
 
 ************************* gebnerate directive **************************************
+
+ng g directive customStyle
+
+************************* gebnerate service **************************************
+ng g service userData
+
+************************* gebnerate api service **************************************
+ng g service userData
