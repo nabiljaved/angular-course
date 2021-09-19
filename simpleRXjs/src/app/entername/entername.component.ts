@@ -14,7 +14,8 @@ export class EnternameComponent implements OnInit {
   }
 
   onSubmit(data:any){
-    this.lstsrv.addName(data)
+    this.lstsrv.addName(data.item)
+
   }
 
 

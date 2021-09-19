@@ -11,6 +11,8 @@ export class ListnameComponent implements OnInit, OnDestroy {
 
   list:String[] = []
   private nameSubscription: Subscription
+  newItem!: String;
+  itemIndex!: number;
 
   constructor(private lstsrv : ListServiceService) {
         this.nameSubscription = new Subscription
@@ -23,8 +25,17 @@ export class ListnameComponent implements OnInit, OnDestroy {
       })
   }
 
-  remove(data:any){
+  remove(data:String){
     this.lstsrv.removeName(data)
+  }
+
+  update(data:String, index:number){
+      this.newItem = data
+      this.itemIndex = index
+  }
+
+  saveChanges(data:String){
+      this.lstsrv.updateName(data, this.itemIndex)
   }
 
   ngOnDestroy(): void {

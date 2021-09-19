@@ -1,4 +1,50 @@
 <h3>List Items Are !</h3>
-<div *ngFor="let item of list">
-    <p (click)="remove(item)" style="margin: 10px; cursor: pointer;">{{item}}</p>
+
+<br>
+
+<div class="container">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Names</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of list; let i = index" [attr.data-index]="i">
+        <th scope="row">{{i}}</th>
+        <td>{{item}}</td>
+        <td>
+           <button class="btn btn-warning " data-toggle="modal" (click)="update(item, i)" data-target="#exampleModal">Update</button>
+           <button class="btn btn-danger ml-2" (click)="remove(item)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">update Item</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="exampleInputEmail1">New Name</label>
+            <input type="text" #input class="form-control" id="newItem" name="newItem" aria-describedby="emailHelp" value={{newItem}} ngModel>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="saveChanges(input.value)">Save changes</button>
+      </div>
+    </div>
+  </div>
 </div>
