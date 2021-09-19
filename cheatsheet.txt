@@ -73,3 +73,9 @@ import { AppRoutingModule } from './app-routing.module';
     AppRoutingModule,
     FormsModule
   ],
+
+************************************** reactive forms*********************
+
+import { ReactiveFormsModule } from '@angular/forms';
+and import it in app.module 
+
